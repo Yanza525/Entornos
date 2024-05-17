@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClasesdePrueba {
+	//HOLA
 //Este será el esqueleto de la app que usaremos para crear los Junit
 	public static class Usuario {
 		private String telefono;
