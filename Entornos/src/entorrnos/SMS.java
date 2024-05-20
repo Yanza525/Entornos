@@ -2,8 +2,15 @@ package entorrnos;
 
 public class SMS extends Mensaje {
 	private String texto;
-	public SMS (Usuario emisor, Usuario receptor, String texto) {
-		super (emisor, receptor);
+	
+	public SMS (String e, String r, String texto) {
+		super(e,r);
 		this.texto=texto;
 	}
+
+	@Override
+	public String toString() {
+		return "SMS: "+ texto;
+	}
+	
 }
