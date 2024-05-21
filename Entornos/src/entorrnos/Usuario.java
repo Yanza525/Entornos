@@ -6,8 +6,8 @@ import java.util.List;
 public class Usuario {
 	private int telefono;
 	private String nombre;
-	private List<Mensaje> enviados;
-	private List<Mensaje> recibidos;
+	private List<Mensaje> enviados = new ArrayList<>();
+	private List<Mensaje> recibidos= new ArrayList<>();
 	//private int clave;
 	
 	public Usuario (int t, String n) {
@@ -65,9 +65,9 @@ public class Usuario {
 		}	
 		}
 	
-	 public void verMensajesRecibidosDe(String emisor) {
+	 public void verMensajesRecibidosDe(int emisor) {
 	        for (Mensaje mensaje : recibidos) {
-	            if (mensaje.getEmisor().equals(emisor)) {
+	            if (mensaje.getEmisor()==(emisor)) {
 	                System.out.println(mensaje);
 	            }
 	        }

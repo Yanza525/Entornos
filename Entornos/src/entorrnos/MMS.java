@@ -4,10 +4,10 @@ public class MMS extends Mensaje{
 	private String nombreArchivo;
 	private String tamaño;
 	
-	public MMS (String e, String r,String n, String t) {
-		super(e,r);
+	public MMS (int i, int destinatario,String n, String tamano) {
+		super(i,destinatario);
 		this.nombreArchivo=n;
-		this.tamaño=t;
+		this.tamaño=tamano;
 	}
 
 	@Override

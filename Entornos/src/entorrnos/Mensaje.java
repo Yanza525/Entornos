@@ -1,27 +1,27 @@
 package entorrnos;
 
 public abstract class Mensaje {
-	private String emisor;
-	private String receptor;
+	private int emisor;
+	private int receptor;
 	
-	public Mensaje (String e, String r) {
+	public Mensaje (int e, int r) {
 		this.emisor=e;
 		this.receptor=r;
 	}
 
-	public String getEmisor() {
+	public int getEmisor() {
 		return emisor;
 	}
 
-	public void setEmisor(String emisor) {
+	public void setEmisor(int emisor) {
 		this.emisor = emisor;
 	}
 
-	public String getReceptor() {
+	public int getReceptor() {
 		return receptor;
 	}
 
-	public void setReceptor(String receptor) {
+	public void setReceptor(int receptor) {
 		this.receptor = receptor;
 	}
 

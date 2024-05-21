@@ -33,7 +33,7 @@ private List <Usuario> usuarios;
     }
 
     @Override
-    public void verMensajesRecibidosDe(String emisor) {
+    public void verMensajesRecibidosDe(int emisor) {
         for (Usuario usuario : usuarios) {
             usuario.verMensajesRecibidosDe(emisor);
         }
