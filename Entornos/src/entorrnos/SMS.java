@@ -17,8 +17,16 @@ public class SMS extends Mensaje {
         super(e, r);
         this.texto = texto;
     }
+    
+    public String getTexto() {
+		return texto;
+	}
 
-    /**
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	/**
      * Devuelve una representación en cadena del SMS.
      *
      * @return una cadena que representa el SMS
@@ -28,3 +36,4 @@ public class SMS extends Mensaje {
         return "SMS: " + texto;
     }
 }
+

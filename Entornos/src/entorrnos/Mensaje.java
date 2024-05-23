@@ -62,3 +62,4 @@ public abstract class Mensaje {
     @Override
     public abstract String toString();
 }
+
