@@ -4,34 +4,43 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
+/**
+ * La clase Main representa el punto de entrada del programa y maneja la lógica de interacción con el usuario y el administrador.
+ */
 public class Main {
     private static List<Usuario> usuarios = new ArrayList<>();
     private static Scanner scanner = new Scanner(System.in);
 
+    /**
+     * El método principal que inicia la aplicación.
+     *
+     * @param args los argumentos de la línea de comandos
+     */
     public static void main(String[] args) {
-        
-    	 System.out.print("Ingrese su número de teléfono: ");
-         int numeroTelefono = Integer.parseInt(scanner.nextLine());
+        System.out.print("Ingrese su número de teléfono: ");
+        int numeroTelefono = Integer.parseInt(scanner.nextLine());
 
-         Usuario usuario = buscarUsuarioPorTelefono(numeroTelefono);
+        Usuario usuario = buscarUsuarioPorTelefono(numeroTelefono);
 
-         if (usuario != null) {
-             manejarUsuario(usuario);
-         } else if (numeroTelefono == 0) { // Usamos 0 como código para administrador
-             Administrador admin = new Administrador(0, usuarios);
-             manejarAdministrador(admin);
-         } else {
-             System.out.println("Número de teléfono no registrado. Registrando nuevo usuario...");
-             usuario = new Usuario(numeroTelefono);
-             usuarios.add(usuario);
-             manejarUsuario(usuario);
-         }
+        if (usuario != null) {
+            manejarUsuario(usuario);
+        } else if (numeroTelefono == 0) { // Usamos 0 como código para administrador
+            Administrador admin = new Administrador(0, usuarios);
+            manejarAdministrador(admin);
+        } else {
+            System.out.println("Número de teléfono no registrado. Registrando nuevo usuario...");
+            usuario = new Usuario(numeroTelefono);
+            usuarios.add(usuario);
+            manejarUsuario(usuario);
+        }
     }
 
-   
-
+    /**
+     * Busca un usuario por su número de teléfono.
+     *
+     * @param numeroTelefono el número de teléfono del usuario
+     * @return el usuario si se encuentra, null si no se encuentra
+     */
     private static Usuario buscarUsuarioPorTelefono(int numeroTelefono) {
         for (Usuario usuario : usuarios) {
             if (usuario.getTelefono() == numeroTelefono) {
@@ -41,6 +50,11 @@ public class Main {
         return null;
     }
 
+    /**
+     * Maneja las opciones del menú para un usuario.
+     *
+     * @param usuario el usuario que está interactuando con el sistema
+     */
     private static void manejarUsuario(Usuario usuario) {
         int opcion;
         do {
@@ -77,6 +91,11 @@ public class Main {
         } while (opcion != 0);
     }
 
+    /**
+     * Maneja las opciones del menú para un administrador.
+     *
+     * @param admin el administrador que está interactuando con el sistema
+     */
     private static void manejarAdministrador(Administrador admin) {
         int opcion;
         do {
@@ -108,7 +127,6 @@ public class Main {
                     int emisor = Integer.parseInt(scanner.nextLine());
                     admin.verMensajesRecibidosDe(emisor);
                     break;
-
                 case 5:
                     System.out.print("Ingrese el número del usuario: ");
                     int numeroUsuario = Integer.parseInt(scanner.nextLine());
@@ -123,6 +141,11 @@ public class Main {
         } while (opcion != 0);
     }
 
+    /**
+     * Envía un mensaje desde el usuario actual a otro usuario.
+     *
+     * @param usuario el usuario que está enviando el mensaje
+     */
     private static void enviarMensaje(Usuario usuario) {
         System.out.print("Ingrese el número de teléfono del destinatario: ");
         int destinatario = Integer.parseInt(scanner.nextLine());
